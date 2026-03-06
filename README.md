@@ -168,13 +168,13 @@ If you prefer to generate the datasets yourself (requires R and may take several
 
 1. **Install R 4.4.2 or higher** (if not already installed):
    
-   **Windows:** [https://cran.r-project.org/bin/windows/base/]
+   **Windows:** [https://cran.r-project.org/bin/windows/base/](https://cran.r-project.org/bin/windows/base/)
    
    **Linux:** 
    ```bash
    sudo apt install r-base r-base-dev
    ```
-   **macOS:** [https://cran.r-project.org/bin/macosx/]
+   **macOS:** [https://cran.r-project.org/bin/macosx/](https://cran.r-project.org/bin/macosx/)
 
 2. **Install** R dependencies:
 ```bash

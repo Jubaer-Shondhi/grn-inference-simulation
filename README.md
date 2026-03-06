@@ -168,41 +168,41 @@ If you prefer to generate the datasets yourself (requires R and may take several
 
 1. **Install R 4.4.2 or higher** (if not already installed):
    
-  **Windows:** [https://cran.r-project.org/bin/windows/base/](https://cran.r-project.org/bin/windows/base/)
+   **Windows:** [https://cran.r-project.org/bin/windows/base/]
    
-  **Linux:** 
-  ```bash
-  sudo apt install r-base r-base-dev
-  ```
-  **macOS:** [https://cran.r-project.org/bin/macosx/](https://cran.r-project.org/bin/macosx/)
+   **Linux:** 
+   ```bash
+   sudo apt install r-base r-base-dev
+   ```
+   **macOS:** [https://cran.r-project.org/bin/macosx/]
 
 2. **Install** R dependencies:
-  ```bash
-  Rscript r_scripts/install_dependencies.R
-  ```
+```bash
+Rscript r_scripts/install_dependencies.R
+```
 
 3. **Configure** how many datasets to generate: Edit configs/simulation_config.yaml and adjust the n_datasets value for each complexity in any text editor (nano, vim, VSCode, Notepad, etc.):
-  ```yaml
-  complexities:
-    5_sources:
-      num_sources: 5
-      max_out_degree: 50
-      n_cells: 500
-      n_datasets: 10  # Change this number (datasets) according to need
-      output_dir: "5_sources"
-    10_sources:
-      num_sources: 10
-      max_out_degree: 40
-      n_cells: 500
-      n_datasets: 5  # Change this number (datasets) according to need
-      output_dir: "10_sources"
-    20_sources:
-      num_sources: 20
-      max_out_degree: 20
-      n_cells: 500
-      n_datasets: 2  # Change this number (datasets) according to need
-      output_dir: "20_sources"
-  ```
+```yaml
+complexities:
+  5_sources:
+    num_sources: 5
+    max_out_degree: 50
+    n_cells: 500
+    n_datasets: 10  # Change this number (datasets) according to need
+    output_dir: "5_sources"
+  10_sources:
+    num_sources: 10
+    max_out_degree: 40
+    n_cells: 500
+    n_datasets: 5  # Change this number (datasets) according to need
+    output_dir: "10_sources"
+  20_sources:
+    num_sources: 20
+    max_out_degree: 20
+    n_cells: 500
+    n_datasets: 2  # Change this number (datasets) according to need
+    output_dir: "20_sources"
+```
 
 4. **Run** the simulation:
    ```bash
@@ -211,7 +211,7 @@ If you prefer to generate the datasets yourself (requires R and may take several
 
 5. **Output location:** The generated data will be saved to data/simulated/ with the same structure as Option A.
 
-**Verify** the datasets in data/simulated folder for 5, 10 and 20_sources. The structure should look like:
+### Verify the datasets in data/simulated folder for 5, 10 and 20_sources. The structure should look like:
 ```
 data/simulated/
 ├── 5_sources/
@@ -225,7 +225,7 @@ data/simulated/
 └── 20_sources/
 ```
 
-**Configure** the Pipeline to Use Large Datasets
+### Configure the Pipeline to Use Large Datasets
 After obtaining the datasets (by either option), follow these steps:
 
 1. Manually edit configs/config.yaml to use the large datasets:

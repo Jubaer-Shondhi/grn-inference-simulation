@@ -1,0 +1,8 @@
+parameter,value
+num_sources,10
+max_out_degree,40
+n_datasets,1
+n_cells,500
+successful,1
+failed,0
+seed,42

@@ -128,11 +128,13 @@ results/
 ```
 **Note:** The `.gitkeep` file is only to keep the empty folder in Git. It does not affect the pipeline and will remain after generating results.
 
-## Large-Scale Datasets (For more experiment)
+## Large-Scale Datasets (For More Extensive Experiments)
 
-For users who want to run experiments with larger datasets, I have pre-simulated **approximately 1000 datasets** available on Google Drive (public access).
+For users who want to run experiments with larger datasets, I have pre-simulated **approximately 1000 datasets**. You have two options:
 
-### How to Use
+### Option A: Download Pre-simulated Datasets (Recommended)
+
+Download the ready-to-use datasets from Google Drive (public access):
 
 1. **Download** `simulated.zip` to your project folder:
 ```bash
@@ -158,7 +160,58 @@ Windows:
 tar -xf simulated.zip -C data/
 ```
 
-3. **Verify** the datasets in data/simulated folder for 5, 10 and 20_sources. The structure should look like:
+3. **Output location:** The generated data will be saved to data/simulated/
+
+### Option B: Generate Your Own Simulated Data
+
+If you prefer to generate the datasets yourself (requires R and may take several hours):
+
+1. **Install R 4.4.2 or higher** (if not already installed):
+   
+  **Windows:** [https://cran.r-project.org/bin/windows/base/](https://cran.r-project.org/bin/windows/base/)
+   
+  **Linux:** 
+  ```bash
+  sudo apt install r-base r-base-dev
+  ```
+  **macOS:** [https://cran.r-project.org/bin/macosx/](https://cran.r-project.org/bin/macosx/)
+
+2. **Install** R dependencies:
+  ```bash
+  Rscript r_scripts/install_dependencies.R
+  ```
+
+3. **Configure** how many datasets to generate: Edit configs/simulation_config.yaml and adjust the n_datasets value for each complexity in any text editor (nano, vim, VSCode, Notepad, etc.):
+  ```yaml
+  complexities:
+    5_sources:
+      num_sources: 5
+      max_out_degree: 50
+      n_cells: 500
+      n_datasets: 10  # Change this number (datasets) according to need
+      output_dir: "5_sources"
+    10_sources:
+      num_sources: 10
+      max_out_degree: 40
+      n_cells: 500
+      n_datasets: 5  # Change this number (datasets) according to need
+      output_dir: "10_sources"
+    20_sources:
+      num_sources: 20
+      max_out_degree: 20
+      n_cells: 500
+      n_datasets: 2  # Change this number (datasets) according to need
+      output_dir: "20_sources"
+  ```
+
+4. **Run** the simulation:
+   ```bash
+   python scripts/generate_simulated_data.py --config configs/simulation_config.yaml
+   ```
+
+5. **Output location:** The generated data will be saved to data/simulated/ with the same structure as Option A.
+
+**Verify** the datasets in data/simulated folder for 5, 10 and 20_sources. The structure should look like:
 ```
 data/simulated/
 ├── 5_sources/
@@ -172,7 +225,10 @@ data/simulated/
 └── 20_sources/
 ```
 
-4. Manually edit configs/config.yaml to use the large datasets:
+**Configure** the Pipeline to Use Large Datasets
+After obtaining the datasets (by either option), follow these steps:
+
+1. Manually edit configs/config.yaml to use the large datasets:
 Open `configs/config.yaml` in any text editor (nano, vim, VSCode, Notepad, etc.) and change:
 
 ```yaml
@@ -180,7 +236,7 @@ Open `configs/config.yaml` in any text editor (nano, vim, VSCode, Notepad, etc.)
 paths:
   base_data: "data/simulated"  # Change from "data" to "data/simulated"
 ```
-5. **Configure** dataset complexities/counts manually to run by yourself:
+2. **Configure** dataset complexities/counts manually to run by yourself:
 In the same file, adjust how many datasets to use:
 
 ```yaml
@@ -194,7 +250,7 @@ datasets:
 ```
 When run, The pipeline reads datasets and automatically skips any missing indices and goes to next file.
 
-6. **Run** the pipeline as usual:
+### **Run** the pipeline as usual:
 
 ```bash
 python scripts/run_experiment.py

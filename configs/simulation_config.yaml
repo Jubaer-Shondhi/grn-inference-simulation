@@ -11,7 +11,6 @@ simulation:
 
   base_output_dir: "data/simulated"
   
-  # Complexity configurations (matching your original code)
   complexities:
     5_sources:
       num_sources: 5

@@ -11,14 +11,6 @@ suppressPackageStartupMessages({
   library(reticulate)
 })
 
-# # ============================================
-# # FIX: Set Python path for reticulate
-# # ============================================
-# Sys.setenv(PYTHON = "C:/Users/Jubaer Shondhi/anaconda3/envs/grn_env/python.exe")
-# Sys.setenv(RETICULATE_PYTHON = "C:/Users/Jubaer Shondhi/anaconda3/envs/grn_env/python.exe")
-# reticulate::use_python("C:/Users/Jubaer Shondhi/anaconda3/envs/grn_env/python.exe", required = TRUE)
-# cat("Python path:", reticulate::py_config()$python, "\n")
-
 # ============================================
 # Set Python path for reticulate - DYNAMIC
 # ============================================

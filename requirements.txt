@@ -1,0 +1,16 @@
+# Core dependencies
+pandas
+numpy
+scikit-learn
+xgboost
+xgboost-distribution
+scanpy
+anndata
+
+# Visualization
+matplotlib
+seaborn
+
+# Utilities
+pyyaml
+jupyter

@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "grn-inference-pipeline"
+version = "0.1.0"
+description = "Gene Regulatory Network inference using XGBoost"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pandas",
+    "numpy",
+    "scikit-learn",
+    "xgboost",
+    "xgboost-distribution",
+    "scanpy",
+    "anndata",
+    "matplotlib",
+    "seaborn",
+    "pyyaml",
+]
+
+[tool.setuptools]
+packages = ["src"]

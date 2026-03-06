@@ -1,0 +1,19 @@
+name: grn-inference
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - pandas
+  - numpy
+  - scikit-learn
+  - matplotlib
+  - seaborn
+  - jupyter
+  - pip:
+    - scanpy
+    - xgboost
+    - xgboost-distribution
+    - pyyaml
+    - anndata

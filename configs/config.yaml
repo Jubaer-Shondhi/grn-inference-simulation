@@ -1,0 +1,43 @@
+# Base paths
+#paths:
+#  base_data: "E:/FAU_CSE_Masters/Semester-4/Projects/Bionets/My Report/Essen/R_Sc"
+#  results_dir: "E:/FAU_CSE_Masters/Semester-4/Projects/Bionets/My Report/Essen"
+
+paths:
+  base_data: "data"  
+  results_dir: "results"
+  
+# Dataset configurations
+datasets:
+  complexities:
+    5_sources: 1
+    10_sources: 0  
+    20_sources: 0
+  max_search_trials: 50
+
+# Model parameters
+model:
+  base_hyperparameters:
+    max_depth: 4
+    learning_rate: 0.1
+    n_estimators: 200
+    subsample: 0.8
+    colsample_bytree: 0.8
+    random_state: 42
+
+# Pipeline settings
+pipeline:
+  batch_size: 100
+  n_workers: "auto"  # Uses os.cpu_count()
+  thresholds: [5, 10, 15, 20, 50, 75, 100, 125, 300, 500]
+  
+# Evaluation
+evaluation:
+  stage4:
+    reference_topn: 50
+    top_n_configs: 5
+
+# Logging
+logging:
+  level: "INFO"
+  save_frequency: 50

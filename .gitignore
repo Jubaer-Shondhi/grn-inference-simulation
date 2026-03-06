@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+
+# Environments
+env/
+venv/
+.env/
+conda-env/
+*.egg-info/
+
+# Results
+results/
+*.csv
+*.pdf
+*.png
+*.tsv
+*.xlsx
+
+# Logs
+*.log
+*.out
+*.err
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# R
+.Rhistory
+.RData
+.Rproj.user
+.Rcache/
+omnipathr-log.txt

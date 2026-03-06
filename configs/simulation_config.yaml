@@ -1,0 +1,60 @@
+# Simulation configuration for GRN data generation
+simulation:
+  # Path to Rscript executable (default: "Rscript")
+  rscript_path: "Rscript"
+  
+  # Install R dependencies before running
+  install_dependencies: true
+  
+  # Base CollectRI network
+  collectri_source: "decoupleR"  # Will use decoupleR::get_collectri()
+
+  base_output_dir: "data/simulated"
+  
+  # Complexity configurations (matching your original code)
+  complexities:
+    5_sources:
+      num_sources: 5
+      max_out_degree: 50
+      n_cells: 500
+      n_datasets: 1
+      output_dir: "5_sources"
+    
+    10_sources:
+      num_sources: 10
+      max_out_degree: 40
+      n_cells: 500
+      n_datasets: 1
+      output_dir: "10_sources"
+    
+    20_sources:
+      num_sources: 20
+      max_out_degree: 20
+      n_cells: 500
+      n_datasets: 1
+      output_dir: "20_sources"
+  
+  # MOR (Mode of Regulation) parameters
+  mor:
+    mean: 5
+    sd: 1
+  
+  # scMultiSim simulation parameters
+  simulation_params:
+    num.cif: 40
+    discrete.cif: true
+    cif.sigma: 0.25
+    speed.up: true
+    diff.cif.fraction: 0.05
+    unregulated.gene.ratio: 0.05
+    do.velocity: false
+    intrinsic.noise: 1.0
+  
+  # Random seed for reproducibility
+  seed: 42
+  
+  # Timeout in seconds (2 hours default for large simulations)
+  timeout: 7200
+  
+  # Whether to generate t-SNE plots
+  generate_plots: true

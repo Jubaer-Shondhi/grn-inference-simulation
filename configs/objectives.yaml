@@ -1,0 +1,23 @@
+standard_objectives:
+  - reg:squarederror
+  - reg:absoluteerror
+  - reg:pseudohubererror
+  - count:poisson
+  - reg:gamma
+  - reg:tweedie
+
+distributions:
+  log-normal: log-normal
+  negative-binomial: negative-binomial
+  normal: normal
+  poisson: poisson
+  laplace: laplace
+  exponential: exponential
+
+eval_metrics:
+  reg:squarederror: rmse
+  reg:absoluteerror: mae
+  reg:pseudohubererror: mphe
+  count:poisson: poisson-nloglik
+  reg:gamma: gamma-nloglik
+  reg:tweedie: tweedie-nloglik@1.5

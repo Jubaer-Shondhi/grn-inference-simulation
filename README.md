@@ -162,6 +162,52 @@ tar -xf simulated.zip -C data/
 
 3. **Output location:** The generated data will be saved to data/simulated/
 
+### Verify the datasets in data/simulated folder for 5, 10 and 20_sources. The structure should look like:
+```
+data/simulated/
+├── 5_sources/
+│   ├── data/
+│   │   ├── data_1.tsv
+│   │   └── ...
+│   └── nets/
+│       ├── network_1.tsv
+│       └── ...
+├── 10_sources/
+└── 20_sources/
+```
+
+### Configure the Pipeline to Use Large Datasets
+After obtaining the datasets (by either option), follow these steps:
+
+1. Manually edit configs/config.yaml to use the large datasets:
+Open `configs/config.yaml` in any text editor (nano, vim, VSCode, Notepad, etc.) and change:
+
+```yaml
+# In configs/config.yaml
+paths:
+  base_data: "data/simulated"  # Change from "data" to "data/simulated"
+```
+2. **Configure** dataset complexities/counts manually to run by yourself:
+In the same file, adjust how many datasets to use:
+
+```yaml
+# In configs/config.yaml
+datasets:
+  complexities:
+    5_sources: 2   # Use first 2 datasets for 5_sources (Update as your need)
+    10_sources: 2  # Use first 2 datasets for 10_sources (Update as your need)
+    20_sources: 1  # Use first 1 datasets for 20_sources (Update as your need)
+  max_search_trials: 50  # Must be updated as per your largest dataset number request per source like (e.g. 60 or 80)
+```
+When run, The pipeline reads datasets and automatically skips any missing indices and goes to next file.
+
+### **Run** the pipeline as usual:
+
+```bash
+python scripts/run_experiment.py
+python scripts/generate_plots.py
+```
+
 ### Option B: Generate Your Own Simulated Data
 
 If you prefer to generate the datasets yourself (requires R and may take several hours):
